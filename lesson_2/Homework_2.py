@@ -94,7 +94,7 @@ class Logger:
         if cls._instance is None:
             print("Создание логгера")
             cls._instance = super().__new__(cls)
-        return cls._instance  
+        return cls._instance
     def __init__(self):
         print("Инициализация логгера")
 log1 = Logger()
