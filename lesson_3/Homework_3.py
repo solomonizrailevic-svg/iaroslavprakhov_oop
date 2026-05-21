@@ -26,31 +26,57 @@
 # Пример вызова:
 # c.print_info()
 # """
-# import math
-#
-#
-# class Circle:
-#     MIN_RADIUS = 1
-#     MAX_RADIUS = 1000
-#
-#     @classmethod
-#     def is_valid_radius(cls, radius):
-#         return cls.MIN_RADIUS <= radius <=cls.MAX_RADIUS
-#     @staticmethod
-#     def area(radius):
-#         return math.pi * radius ** 2
-#     def __init__(self, radius):
-#         if not self.is_valid_radius(radius):
-#             raise ValueError("Некорректный радиус")
-#         self.radius = radius
-#     def print_info(self, radius:int):
-#         return self.radius
-# c = Circle(5)
-# print(c.area(c.radius))
-# print(c.print_info(25))
-# print(Circle.is_valid_radius(500))
-# print(Circle.is_valid_radius(1500))
+import math
 
+
+class Circle:
+    MIN_RADIUS = 1
+    MAX_RADIUS = 1000
+
+    @classmethod
+    def is_valid_radius(cls, radius):
+        return cls.MIN_RADIUS <= radius <=cls.MAX_RADIUS
+    @staticmethod
+    def area(radius):
+        return math.pi * radius ** 2
+    def __init__(self, radius):
+        if not self.is_valid_radius(radius):
+            raise ValueError("Некорректный радиус")
+        self.radius = radius
+    def print_info(self, radius:int):
+        return self.radius
+c = Circle(5)
+print(c.area(c.radius))
+print(c.print_info(25))
+print(Circle.is_valid_radius(500))
+print(Circle.is_valid_radius(1500))
+# """
+# 4. Создай класс User, в котором:
+#
+# приватные атрибуты __login и __password;
+# метод set_credentials(login, password), который сохраняет их только если оба значения — строки;
+# метод get_credentials(), который возвращает кортеж из логина и пароля.
+# Попробуй создать объект и изменить логин снаружи напрямую. Проверь, что это не сработает.
+# ======================================
+# 5. Добавь в User:
+#
+# метод check_password(password) — возвращает True,
+# если переданное значение совпадает с сохранённым паролем;
+# приватный метод __encrypt_password(password),
+# который возвращает пароль в верхнем регистре (имитация шифрования);
+# в set_credentials вызывай __encrypt_password.
+# Пример:
+# u = User()
+# u.set_credentials("daniil", "qwerty")
+# print(u.check_password("qwerty"))      # True
+# print(u.check_password("qwe"))         # False
+# ======================================
+# 6. Убедись, что приватный метод __encrypt_password нельзя вызвать извне.
+# Попробуй это сделать — и поясни результат.
+# Также выведи напрямую u.__password — и проверь, что будет ошибка.
+#
+# Попробуй добраться до данных через u._User__password
+# """
 class User:
     def __init__(self):
         self.__login = None
